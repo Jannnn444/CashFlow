@@ -12,12 +12,12 @@ import SwiftUI
 
 struct CreatePage: View {
     @Binding var isPresented: Bool
-    let onSave: () -> Void
+    @Bindable var viewModel: CashFlowViewModel // same view model from parent
     
     @State private var icon: String = ""
     @State private var description: String = ""
-    
-    @State var cashviewcontroller = CashFlowViewModel()
+    @State private var amount: String = ""  // ✅ Change to String for TextField
+        
     
     var body: some View {
         VStack {
@@ -26,30 +26,49 @@ struct CreatePage: View {
             
             HStack {
                 TextField(":)", text: $icon)
-                    .frame(width: 50, height: 50)
+                    .frame(width: 30, height: 50)
                     .font(.body)
-                TextField("Catefory",text: $description)
+                    
+                TextField("Item",text: $description)
+                    .frame(width: 100, height: 50)
+                    .font(.body)
+                
             }
+            TextField("Amount", text: $amount)
+                .frame(width: 100, height: 50)
+                .font(.body)
             
             HStack {
                 Button("Back") {
                     isPresented = false
                 }
-                .frame(width: 50, height: 50)
+                .frame(width: 60, height: 50)
                 .foregroundStyle(.black)
                 .font(.body)
                 
                 Button("Save") {
-                    onSave()
+                    
                     isPresented = false
                     let record = Record(date: .now, icon: icon, description: description, amount: 0, type: .spending)
-                    cashviewcontroller.save(record: record)
                 }
-                .frame(width: 50, height: 50)
+                .frame(width: 60, height: 50)
                 .foregroundStyle(.black)
                 .font(.body)
             }
         }
         .padding()
+    }
+    
+    private func saveRecord() {
+        let newRecord = Record(
+            date: .now,
+            icon: icon.isEmpty ? "💰" : icon,
+            description: description,
+            amount: Double(amount) ?? 0,  // !!! Convert String to Double
+            type: .spending
+        )
+        
+        viewModel.save(record: newRecord)
+        isPresented = false //dismiss after saving
     }
 }

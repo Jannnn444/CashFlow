@@ -20,4 +20,8 @@ class CashFlowViewModel {
     func save(record: Record) {
         recordsMockData.append(record)
     }
+    
+    func delete(record: Record) {
+        recordsMockData.removeAll { $0.id == record.id }
+    }
 }

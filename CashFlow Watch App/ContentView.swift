@@ -25,7 +25,7 @@ struct ContentView: View {
                     showingingCreatePage = true
                     isAnySpenseCreated = true
                 }) {
-                    // UI
+                   
                     Image(systemName: "plus")
                         .imageScale(.large)
                         .foregroundStyle(.tint)
@@ -50,11 +50,12 @@ struct ContentView: View {
             .padding()
         }
         .sheet(isPresented: $showingingCreatePage) {
-            CreatePage(isPresented: $showingingCreatePage, onSave: {
-                isAnySpenseCreated = true
-            })
+                CreatePage(
+                    isPresented: $showingingCreatePage,
+                    viewModel: cashViewModel  // Pass the SAME viewModel!
+                )
+            }
         }
-    }
 }
 
 #Preview {
