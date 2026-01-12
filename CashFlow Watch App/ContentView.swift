@@ -23,6 +23,7 @@ struct ContentView: View {
             VStack {
                 Button(action: {
                     showingingCreatePage = true
+                    isAnySpenseCreated = true
                 }) {
                     // UI
                     Image(systemName: "plus")
@@ -33,14 +34,17 @@ struct ContentView: View {
                 .frame(width: 80, height: 80)
                 .padding()
                 
-//                if !isAnySpenseCreated {
-//                    Text("Create your first spense!")
-//                        .foregroundStyle(.black)
-//                } else {
+                if !isAnySpenseCreated {
+                    Text("Create your first spense!")
+                        .foregroundStyle(.black)
+                } else {
+                    
                     ForEach(cashViewModel.recordsMockData) { record in
                         RowView(record: record)
+                    }.task {
+                        try? await Task.sleep(for: .seconds(50)) // let mock data slower show
                     }
-//                }
+                }
                 
             }
             .padding()
