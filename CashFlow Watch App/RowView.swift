@@ -9,14 +9,20 @@ import Foundation
 import SwiftUI
 
 struct RowView: View {
-    @Binding var record: [Record]
+    let record: Record
     
     var body: some View {
         HStack {
-            ForEach(record) { r in
-                Text(r.icon)
-                Text(r.description)
-            }
+            Text(record.icon)
+            Text(record.description)
+                .font(.footnote)
+                .foregroundStyle(.black)
+                
+            Spacer()
+            Text("$\(record.amount, specifier: "%.2f")")
+                .font(.footnote)
+                .foregroundStyle(.black)
         }
+        .padding(.vertical, 4)
     }
 }

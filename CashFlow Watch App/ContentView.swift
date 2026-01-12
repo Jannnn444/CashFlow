@@ -33,15 +33,14 @@ struct ContentView: View {
                 .frame(width: 80, height: 80)
                 .padding()
                 
-                if !isAnySpenseCreated {
-                    Text("Create your first spense!")
-                        .foregroundStyle(.black)
-                }
-                
-                // Loop thru the list from API
-//                RowView(record: cashViewModel.recordsMockData)
-              
-                
+//                if !isAnySpenseCreated {
+//                    Text("Create your first spense!")
+//                        .foregroundStyle(.black)
+//                } else {
+                    ForEach(cashViewModel.recordsMockData) { record in
+                        RowView(record: record)
+                    }
+//                }
                 
             }
             .padding()
