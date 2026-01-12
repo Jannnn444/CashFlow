@@ -15,47 +15,49 @@ struct ContentView: View {
 
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: 180, height: 200)
-                .cornerRadius(20)
-            
-            VStack {
-                Button(action: {
-                    showingingCreatePage = true
-                    isAnySpenseCreated = true
-                }) {
-                   
-                    Image(systemName: "plus")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                        .padding()
-                }
-                .frame(width: 80, height: 80)
-                .padding()
+        ZStack(alignment: .top) {
+                Rectangle()
+                    .frame(width: 180, height: 200)
+                    .cornerRadius(20)
                 
-                if !isAnySpenseCreated {
-                    Text("Create your first spense!")
-                        .foregroundStyle(.black)
-                } else {
-                    
-                    ForEach(cashViewModel.recordsMockData) { record in
-                        RowView(record: record)
-                    }.task {
-                        try? await Task.sleep(for: .seconds(50)) // let mock data slower show
+                VStack {
+                    ScrollView {
+                    Button(action: {
+                        showingingCreatePage = true
+                        isAnySpenseCreated = true
+                    }) {
+                        
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                            .foregroundStyle(.tint)
+                            .padding()
                     }
+                    .frame(width: 80, height: 80)
+                    .padding()
+                    
+                    if !isAnySpenseCreated {
+                        Text("Create your first spense!")
+                            .foregroundStyle(.black)
+                    } else {
+                        
+                        ForEach(cashViewModel.recordsMockData) { record in
+                            RowView(record: record)
+                        }.task {
+                            try? await Task.sleep(for: .seconds(50)) // let mock data slower show
+                        }
+                    }
+                    
                 }
-                
+                .padding()
             }
-            .padding()
-        }
-        .sheet(isPresented: $showingingCreatePage) {
+            .sheet(isPresented: $showingingCreatePage) {
                 CreatePage(
                     isPresented: $showingingCreatePage,
                     viewModel: cashViewModel  // Pass the SAME viewModel!
                 )
             }
         }
+    }
 }
 
 #Preview {
@@ -66,5 +68,6 @@ struct ContentView: View {
  
   1. Write Save()
   2. by diffent enum shows transaction color
+  3. refresh 
  
 */
