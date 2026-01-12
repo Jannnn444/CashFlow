@@ -16,4 +16,8 @@ class CashFlowViewModel {
         Record(date: .now, icon: "🪿", description: "Meal", amount: 100, type: .spending)
     ]
    
+    
+    func save(record: Record) {
+        recordsMockData.append(record)
+    }
 }
