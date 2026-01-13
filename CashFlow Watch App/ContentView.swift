@@ -10,9 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var isAnySpenseCreated: Bool = false
     @State var showingingCreatePage = false
-    
     @State private var cashViewModel = CashFlowViewModel()
-
     
     var body: some View {
         ZStack(alignment: .top) {
