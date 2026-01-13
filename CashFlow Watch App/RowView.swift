@@ -24,5 +24,6 @@ struct RowView: View {
                 .foregroundStyle(.black)
         }
         .padding(.vertical, 4)
+        .padding(.horizontal, 5)
     }
 }

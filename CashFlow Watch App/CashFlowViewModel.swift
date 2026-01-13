@@ -13,7 +13,8 @@ class CashFlowViewModel {
     
     var recordsMockData: [Record] = [
         Record(date: .now, icon: "🦋", description: "Butterfily", amount: 40, type: .spending),
-        Record(date: .now, icon: "🪿", description: "Meal", amount: 100, type: .spending)
+        Record(date: .now, icon: "🪿", description: "Meal", amount: 100, type: .spending),
+        Record(date: .now, icon: "🍊", description: "Orange", amount: 80, type: .spending)
     ]
    
     
