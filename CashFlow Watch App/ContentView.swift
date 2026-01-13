@@ -5,6 +5,13 @@
 //  Created by Jan on 2026/1/11.
 //
 
+//
+//  ContentView.swift
+//  StickerMoneyBook Watch App
+//
+//  Created by Jan on 2026/1/11.
+//
+
 import SwiftUI
 
 struct ContentView: View {
@@ -13,45 +20,50 @@ struct ContentView: View {
     @State private var cashViewModel = CashFlowViewModel()
     
     var body: some View {
-        ZStack(alignment: .top) {
+        NavigationStack {
+            ZStack(alignment: .top) {
                 Rectangle()
                     .frame(width: 180, height: 200)
                     .cornerRadius(20)
                 
                 VStack {
                     ScrollView {
-                    Button(action: {
-                        showingingCreatePage = true
-                        isAnySpenseCreated = true
-                    }) {
+                        if !isAnySpenseCreated {
+                            Text("Create your first spense!")
+                                .foregroundStyle(.black)
+                                .padding(.top, 40)
+                        }
                         
-                        Image(systemName: "plus")
-                            .imageScale(.large)
-                            .foregroundStyle(.tint)
-                            .padding()
-                    }
-                    .frame(width: 80, height: 80)
-                    .padding()
-                    
-                    if !isAnySpenseCreated {
-                        Text("Create your first spense!")
-                            .foregroundStyle(.black)
-                    } else {
-                        
-                        ForEach(cashViewModel.recordsMockData) { record in
-                            RowView(record: record)
-                        }.task {
-                            try? await Task.sleep(for: .seconds(50)) // let mock data slower show
+                        if isAnySpenseCreated {
+                            VStack {
+                                ForEach(cashViewModel.recordsMockData) { record in
+                                    RowView(record: record)
+                                }
+                            }.padding()
+                                .task {
+                                    try? await Task.sleep(for: .seconds(5))
+                                }
                         }
                     }
-                    
+                    .padding()
                 }
-                .padding()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingingCreatePage = true
+                        isAnySpenseCreated = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .imageScale(.medium)
+                            .foregroundStyle(.tint)
+                    }
+                }
             }
             .sheet(isPresented: $showingingCreatePage) {
                 CreatePage(
                     isPresented: $showingingCreatePage,
-                    viewModel: cashViewModel  // Pass the SAME viewModel!
+                    viewModel: cashViewModel
                 )
             }
         }
