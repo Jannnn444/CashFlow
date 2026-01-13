@@ -61,11 +61,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
-/* todo list: 
- 
-  1. Write Save()
-  2. by diffent enum shows transaction color
-  3. refresh 
- 
-*/
