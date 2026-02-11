@@ -16,12 +16,12 @@ struct RowView: View {
             Text(record.icon)
             Text(record.description)
                 .font(.footnote)
-                .foregroundStyle(.black)
+                .foregroundStyle(.white)
                 
             Spacer()
             Text("$\(record.amount, specifier: "%.2f")")
                 .font(.footnote)
-                .foregroundStyle(.black)
+                .foregroundStyle(.white)
         }
         .padding(.vertical, 4)
         .padding(.horizontal, 5)

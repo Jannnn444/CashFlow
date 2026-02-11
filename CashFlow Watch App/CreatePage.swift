@@ -4,13 +4,6 @@
 //  CreatPage.swift
 //  StickerMoneyBook Watch App
 //
-//  Created by Jan    on 2026/1/11.
-//
-
-//
-//  CreatePage.swift
-//  StickerMoneyBook Watch App
-//
 //  Created by Jan on 2026/1/11.
 //
 
@@ -121,3 +114,4 @@ struct CreatePage: View {
         isPresented = false
     }
 }
+

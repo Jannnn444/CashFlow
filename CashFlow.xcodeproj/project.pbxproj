@@ -16,6 +16,7 @@
 		1EA7584C2F14E36400F44509 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7584B2F14E36400F44509 /* Model.swift */; };
 		1EA7584E2F14E37400F44509 /* CreatePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7584D2F14E37400F44509 /* CreatePage.swift */; };
 		1EA758502F14E40800F44509 /* CashFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7584F2F14E40800F44509 /* CashFlowViewModel.swift */; };
+		1EA758B22F18EDBB00F44509 /* SecondCreatePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA758B12F18EDBB00F44509 /* SecondCreatePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1EA7584B2F14E36400F44509 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1EA7584D2F14E37400F44509 /* CreatePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePage.swift; sourceTree = "<group>"; };
 		1EA7584F2F14E40800F44509 /* CashFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowViewModel.swift; sourceTree = "<group>"; };
+		1EA758B12F18EDBB00F44509 /* SecondCreatePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreatePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				1EA7584B2F14E36400F44509 /* Model.swift */,
 				1EA7584D2F14E37400F44509 /* CreatePage.swift */,
 				1EA7584F2F14E40800F44509 /* CashFlowViewModel.swift */,
+				1EA758B12F18EDBB00F44509 /* SecondCreatePage.swift */,
 			);
 			path = "CashFlow Watch App";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				1EA7584A2F14E34E00F44509 /* RowView.swift in Sources */,
 				1EA758322F14D35100F44509 /* CashFlowApp.swift in Sources */,
 				1EA7584C2F14E36400F44509 /* Model.swift in Sources */,
+				1EA758B22F18EDBB00F44509 /* SecondCreatePage.swift in Sources */,
 				1EA7584E2F14E37400F44509 /* CreatePage.swift in Sources */,
 				1EA758502F14E40800F44509 /* CashFlowViewModel.swift in Sources */,
 			);
